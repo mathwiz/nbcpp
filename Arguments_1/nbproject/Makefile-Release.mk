@@ -35,7 +35,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/args2.o \
+	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/src/args.o
 
 
@@ -63,10 +63,10 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/arguments_1.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/arguments_1 ${OBJECTFILES} ${LDLIBSOPTIONS}
 
-${OBJECTDIR}/args2.o: args2.c
+${OBJECTDIR}/main.o: main.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/args2.o args2.c
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.c
 
 ${OBJECTDIR}/src/args.o: src/args.c
 	${MKDIR} -p ${OBJECTDIR}/src
