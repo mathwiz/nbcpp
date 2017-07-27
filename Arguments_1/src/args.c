@@ -32,7 +32,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-int main(int argc, char**argv) {
+int runargs(int argc, char**argv) {
     int i;
 
     // Prints arguments
