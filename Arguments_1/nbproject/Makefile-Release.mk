@@ -35,8 +35,8 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/hello.o \
 	${OBJECTDIR}/src/args.o \
+	${OBJECTDIR}/src/hello.o \
 	${OBJECTDIR}/src/main.o
 
 
@@ -64,15 +64,15 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/arguments_1.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/arguments_1 ${OBJECTFILES} ${LDLIBSOPTIONS}
 
-${OBJECTDIR}/hello.o: hello.c
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/hello.o hello.c
-
 ${OBJECTDIR}/src/args.o: src/args.c
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/args.o src/args.c
+
+${OBJECTDIR}/src/hello.o: src/hello.c
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/hello.o src/hello.c
 
 ${OBJECTDIR}/src/main.o: src/main.c
 	${MKDIR} -p ${OBJECTDIR}/src

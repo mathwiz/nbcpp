@@ -52,7 +52,7 @@ Contributor(s):
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>src/args.c</itemPath>
-      <itemPath>hello.c</itemPath>
+      <itemPath>src/hello.c</itemPath>
       <itemPath>src/main.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
@@ -71,9 +71,9 @@ Contributor(s):
       </toolsSet>
       <compileType>
       </compileType>
-      <item path="hello.c" ex="false" tool="0" flavor2="0">
-      </item>
       <item path="src/args.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="src/hello.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="src/main.c" ex="false" tool="0" flavor2="0">
       </item>
@@ -98,9 +98,9 @@ Contributor(s):
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
-      <item path="hello.c" ex="false" tool="0" flavor2="0">
-      </item>
       <item path="src/args.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="src/hello.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="src/main.c" ex="false" tool="0" flavor2="0">
       </item>
