@@ -64,6 +64,7 @@ Contributor(s):
       <runprofile version="9">
         <runcommandpicklist>
           <runcommandpicklistitem>"${OUTPUT_PATH}"</runcommandpicklistitem>
+          <runcommandpicklistitem>"${OUTPUT_PATH}" "arg 1" "arg 2" "arg 3" "arg 4"</runcommandpicklistitem>
         </runcommandpicklist>
         <runcommand>"${OUTPUT_PATH}" "arg 1" "arg 2" "arg 3" "arg 4"</runcommand>
         <rundir></rundir>
@@ -97,6 +98,7 @@ Contributor(s):
       <runprofile version="9">
         <runcommandpicklist>
           <runcommandpicklistitem>"${OUTPUT_PATH}"</runcommandpicklistitem>
+          <runcommandpicklistitem>"${OUTPUT_PATH}" "arg 1" "arg 2" "arg 3" "arg 4"</runcommandpicklistitem>
         </runcommandpicklist>
         <runcommand>"${OUTPUT_PATH}" "arg 1" "arg 2" "arg 3" "arg 4"</runcommand>
         <rundir></rundir>
