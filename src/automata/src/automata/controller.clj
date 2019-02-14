@@ -5,6 +5,15 @@
  'automata.view)
 
 
+(defn do-random? [string]
+  (= "r" string))
+
+
+(defn parse-init [string]
+  (cond (> 0 (count string)) '(1 0 1)
+    :else                    '(0 1)))
+
+
 (defn compute-iteration [automaton iterations]
   (cond (= iterations 0) nil
     :else                (do (show (make-string automaton))
@@ -16,4 +25,6 @@
          rows (Integer/parseInt (second args))
          rule (Integer/parseInt (nth args 2))
          init (nth args 3)]
-    (do (compute-iteration (make-automaton size init) rows))))
+    (compute-iteration
+     (if (do-random? init) (make-automaton size) (make-automaton size (parse-init init)))
+     rows)))
