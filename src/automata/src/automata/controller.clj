@@ -9,9 +9,17 @@
   (= "r" string))
 
 
+(defn explode-string [string]
+  (clojure.string/split string #""))
+
+
+(defn convert-to-long [strings]
+  (map #(Long/parseLong %) strings))
+
+
 (defn parse-init [string]
-  (cond (> 0 (count string)) '(1 0 1)
-    :else                    '(0 1)))
+  (cond (> (count string) 0) (convert-to-long (explode-string string))
+    :else                    ()))
 
 
 (defn compute-iteration [automaton iterations]
@@ -26,5 +34,7 @@
          rule (Integer/parseInt (nth args 2))
          init (nth args 3)]
     (compute-iteration
-     (if (do-random? init) (make-automaton size) (make-automaton size (parse-init init)))
+     (if (do-random? init)
+       (make-automaton size)
+       (make-automaton size (parse-init init)))
      rows)))
