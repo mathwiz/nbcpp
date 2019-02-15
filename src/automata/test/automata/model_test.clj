@@ -3,13 +3,20 @@
             [automata.model :refer :all]))
 
 
-(deftest recycle-count-test
-         (testing "check that recycle creates the right length."
-                  (let [elems (recycle-list 8 () '(1 0 1))]
-                                            (is ( = 8(count elems) )))))
+(deftest random-count-test
+  (testing "check that recycle creates the right length."
+           (let [elems (random-list 8 ())]
+             (is (= 8 (count elems))))))
 
 
 (deftest recycle-test
   (testing "check that recycle creates the right list."
            (let [elems (recycle-list 8 () '(1 0 1))]
-             (is ( = '(1 0 1 1 0 1 1 0) elems)))))
+             (is (= '(1 0 1 1 0 1 1 0) elems))
+             (is (= 8 (count elems))))))
+
+
+(deftest make-test
+  (testing "create an automaton."
+           (let [auto (make-automaton 8 #(= 1 1) '(1 0 1))]
+             (is (= '(1 0 1 1 0 1 1 0) (get auto :cells))))))
