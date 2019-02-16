@@ -15,6 +15,4 @@
 
 
 (defn make-string [elems]
-  (println elems)
-  (println (type (first elems)))
   (join (map replace-print-chars elems)))
