@@ -56,6 +56,9 @@
              (is (= '(1 0 0 1 1 1 1 1) (evolve-cells '(0 0 0 0 1 0 0 1) rule 0 [])))
              (is (= '(0 0 0 1 1 1 0 0) (evolve-cells '(0 0 0 0 1 0 0 0) rule 0 [])))
              (is (= '(1 1 1 1 0 1 0 1) (evolve-cells '(1 0 0 1 1 0 0 0) rule 0 [])))
+             (is (= '(0 0 0 0 0 1 0 1) (evolve-cells '(1 1 1 1 0 1 0 1) rule 0 [])))
+             (is (= '(1 0 0 0 1 1 0 1) (evolve-cells '(0 0 0 0 0 1 0 1) rule 0 [])))
+             (is (= '(0 1 0 1 1 0 0 1) (evolve-cells '(1 0 0 0 1 1 0 1) rule 0 [])))
              (is (= '(0 1 0 1 0 1 0 0) (evolve-cells '(0 1 0 1 0 1 1 1) rule 0 []))))))
 
 

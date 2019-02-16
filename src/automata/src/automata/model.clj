@@ -22,9 +22,9 @@
 
 
 (defn evolve-cell [cells index rule]
-  (let [left   (if (= index 0) (nth cells (- (count cells) 1)) (nth cells (dec index)))
+  (let [left   (if (= index 0) (nth cells (dec (count cells))) (nth cells (dec index)))
         center (nth cells index)
-        right  (if (= index (- (count cells) 1)) 0 (nth cells (inc index)))]
+        right  (if (= index (dec (count cells))) (nth cells 0) (nth cells (inc index)))]
     (rule left center right)))
 
 
@@ -36,7 +36,7 @@
 (defn evolve [automaton]
   "Computes the next iteration of automaton"
   (automaton-new (get automaton :rule)
-                 (get automaton :cells)))
+                 (evolve-cells (get automaton :cells) (get automaton :rule) 0 [])))
 
 
 (defn eval-triplet [trip pat]
