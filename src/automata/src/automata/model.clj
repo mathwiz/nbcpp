@@ -30,7 +30,7 @@
 
 (defn evolve-cells [cells rule index acc]
   (cond (= index (count cells)) acc
-    :else                       (recur cells rule (inc index) (cons (evolve-cell cells index rule) acc))))
+    :else                       (recur cells rule (inc index) (conj acc (evolve-cell cells index rule)))))
 
 
 (defn evolve [automaton]
