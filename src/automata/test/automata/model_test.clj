@@ -18,5 +18,18 @@
 
 (deftest make-test
   (testing "create an automaton."
-           (let [auto (make-automaton 8 #(= 1 1) '(1 0 1))]
+           (let [auto (make-automaton 8 R0 '(1 0 1))]
              (is (= '(1 0 1 1 0 1 1 0) (get auto :cells))))))
+
+
+(deftest rule-eval-test
+  (testing "rule matching."
+           (let [rule R30]
+             (is (= 1 (rule 1 0 0)))
+             (is (= 1 (rule 0 1 1)))
+             (is (= 1 (rule 0 1 0)))
+             (is (= 1 (rule 0 0 1)))
+             (is (= 0 (rule 0 0 0)))
+             (is (= 0 (rule 1 1 1)))
+             (is (= 0 (rule 1 0 1)))
+             (is (= 0 (rule 1 1 0))))))

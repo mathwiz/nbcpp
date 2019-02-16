@@ -29,8 +29,8 @@
 
 
 (defn evolve-cells [cells rule index acc]
-  (cond (= it (count cells)) acc
-    :else                    (recur cells rule (inc index) (cons (evolve-cell cells index rule) acc))))
+  (cond (= index (count cells)) acc
+    :else                       (recur cells rule (inc index) (cons (evolve-cell cells index rule) acc))))
 
 
 (defn evolve [automaton]
@@ -39,23 +39,41 @@
                  (get automaton :cells)))
 
 
+(defn eval-triplet [trip pat]
+  (and (= (first trip) (first pat))
+       (= (second trip) (second pat))
+       (= (last trip) (last pat))))
+
+
+(defn eval-rule [cells patterns]
+  (cond (empty? patterns) false
+    :else                 (or (eval-triplet cells (first patterns))
+                              (recur cells (rest patterns)))))
+
+
+(defn meta-rule [cells result]
+  "All rules will use the meta rule for now. In the future a rule could return another value based on input and test."
+  (if result 1 0))
+
+
 (defn R0 [l c r]
-  false)
+  (meta-rule [l c r] (eval-rule [l c r] [])))
+
+
+(defn R1 [l c r]
+  (meta-rule [l c r] (eval-rule [l c r] [[0 1 0], [1 1 0], [0 1 1], [1 1 1]])))
 
 
 (defn R30 [l c r]
-  (if (or (and (= l 1) (= c 0) (= r 0)))
-    1
-    0))
+  (meta-rule [l c r] (eval-rule [l c r] [[1 0 0], [0 1 1], [0 1 0], [0 0 1]])))
 
 
 (defn R90 [l c r]
-  (if (or (and (= l 1) (= c 0) (= r 0)))
-    1
-    0))
+  (meta-rule [l c r] (eval-rule [l c r] [[1 1 0], [1 0 0], [0 1 1], [0 0 1]])))
 
 
 (defn make-rule [num]
   (cond (= num 30) R30
     (= num 90)     R90
+    (= num 1)      R1
     :else          R0))
