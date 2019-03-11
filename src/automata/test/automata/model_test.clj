@@ -69,8 +69,8 @@
              (is (= '(1 1 1 1 0 1 0 1) (get (evolve auto) :cells))))))
 
 
-(deftest rule-eval-test
-  (testing "rule matching."
+(deftest rule-eval-test30
+  (testing "rule 30"
            (let [rule R30]
              (is (= 1 (rule 1 0 0)))
              (is (= 1 (rule 0 1 1)))
@@ -80,3 +80,24 @@
              (is (= 0 (rule 1 1 1)))
              (is (= 0 (rule 1 0 1)))
              (is (= 0 (rule 1 1 0))))))
+
+
+(deftest rule-eval-test250
+  (testing "rule 250"
+           (let [rule (make-rule 250)]
+             (is (= 1 (rule 1 1 1)))
+             (is (= 1 (rule 1 1 0)))
+             (is (= 1 (rule 1 0 1)))
+             (is (= 1 (rule 1 0 0)))
+             (is (= 1 (rule 0 1 1)))
+             (is (= 0 (rule 0 1 0)))
+             (is (= 1 (rule 0 0 1)))
+             (is (= 0 (rule 0 0 0))))))
+
+
+(deftest rule-patterns-test
+  (testing "rule patterns."
+           (let [rule R30]
+             (is (= '([1 0 0] [0 1 1] [0 1 0] [0 0 1]) (rule-patterns 30)))
+             (is (= '([1 1 0] [1 0 0] [0 1 1] [0 0 1])  (rule-patterns 90))))))
+
