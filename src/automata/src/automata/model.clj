@@ -76,35 +76,35 @@
 
 (defn R255 [l c r] 1)
 
-(defn rule-patterns [n]
-  (defn iter [num acc] 
-    (cond 
-      (>= num 128) 
-      (iter (- num 128) 
-            (cons [1 1 1] acc))
-      (>= num 64) 
-      (iter (- num 64) 
-            (cons [1 1 0] acc))
-      (>= num 32) 
-      (iter (- num 32) 
-            (cons [1 0 1] acc))
-      (>= num 16) 
-      (iter (- num 16) 
-            (cons [1 0 0] acc))
-      (>= num 8) 
-      (iter (- num 8) 
-            (cons [0 1 1] acc))
-      (>= num 4) 
-      (iter (- num 4) 
-            (cons [0 1 0] acc))
-      (>= num 2) 
-      (iter (- num 2) 
-            (cons [0 0 1] acc))
-      (>= num 1) 
-      (iter (- num 1) 
-            (cons [0 0 0] acc)) 
-      :else acc)) 
-  (reverse (iter n [])))
+
+(defn rule-patterns [n] 
+  (letfn [(iter [num acc] 
+            (cond (>= num 128) 
+                  (iter (- num 128) 
+                        (cons [1 1 1] acc)) 
+                  (>= num 64) 
+                  (iter (- num 64) 
+                        (cons [1 1 0] acc)) 
+                  (>= num 32) 
+                  (iter (- num 32) 
+                        (cons [1 0 1] acc)) 
+                  (>= num 16) 
+                  (iter (- num 16) 
+                        (cons [1 0 0] acc)) 
+                  (>= num 8) 
+                  (iter (- num 8) 
+                        (cons [0 1 1] acc)) 
+                  (>= num 4) 
+                  (iter (- num 4) 
+                        (cons [0 1 0] acc)) 
+                  (>= num 2) 
+                  (iter (- num 2) 
+                        (cons [0 0 1] acc)) 
+                  (>= num 1) 
+                  (iter (- num 1) 
+                        (cons [0 0 0] acc)) 
+                  :else acc))] 
+    (reverse (iter n []))))
 
 
 (defn rule-from-num [n]
