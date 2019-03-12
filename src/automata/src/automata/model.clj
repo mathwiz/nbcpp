@@ -37,18 +37,18 @@
 
 
 (defn evolve-cells [cells rule index acc]
-  (cond (= index (count cells)) acc
-        :else                       (recur cells rule (inc index)
+  (cond (= index (count cells)) acc 
+        :else                       (recur cells rule (inc index) 
                                            (conj acc (evolve-cell cells index rule)))))
 
 
 (defn evolve [automaton]
   "Computes the next iteration of automaton"
-  (automaton-new (get automaton 
-                      :rule) 
-                 (evolve-cells (get automaton 
-                                    :cells) 
-                               (get automaton 
+  (automaton-new (get automaton
+                      :rule)
+                 (evolve-cells (get automaton
+                                    :cells)
+                               (get automaton
                                     :rule) 0 [])))
 
 
